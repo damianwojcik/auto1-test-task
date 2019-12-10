@@ -12,5 +12,11 @@
     cursor: pointer;
     line-height: 1;
     height: 31px;
-    margin: 0 5px;
+}
+.button__element.secondary {
+    background-color: #1e58ff;
+    color: white;
+    font-weight: 700;
+    font-size: .8em; 
+    box-shadow: 0 5px 20px -5px #818181;
 }

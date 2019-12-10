@@ -1,0 +1,46 @@
+.modal__wrapper {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 30px 80px;
+    width: 60vw;
+    height: 70vh;
+    background-color: white;
+    box-shadow: 0 20px 40px -10px #818181;
+}
+
+.modal__closeButton {
+    width: 27px;
+    height: 27px;
+    background: #1e58ff;
+    border: none;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    cursor: pointer;
+}
+.modal__closeButton:before, 
+.modal__closeButton:after {
+  content: '';
+  width: 16px;
+  height: 2px;
+  position: absolute;
+  background: white;
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  transform-origin: 50%;
+}
+.modal__closeButton:before {
+  transform: rotate(45deg);
+}
+.modal__closeButton:after {
+  transform: rotate(-45deg);
+}

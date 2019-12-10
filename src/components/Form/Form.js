@@ -14,7 +14,7 @@ const Form = ({ submitFn }) => (
       <Input name="avatarUrl" label="Avatar Url" />
       <Input type="email" name="email" label="Email" />
       <Input name="phone" label="Phone" />
-      <div className="form__item">
+      <div className="form__item form__item--left">
         <input name="premium" type="checkbox" />
         <label htmlFor="premium">Premium</label>
       </div>

@@ -12,7 +12,7 @@ const initialStateItems = [
         id: '1',
         carTitle: 'Fiat',
         amount: 521,
-        created: '09-12-2019'
+        created: '12-12-2019'
       },
       {
         id: '2',
@@ -24,7 +24,7 @@ const initialStateItems = [
         id: '3',
         carTitle: 'Porsche',
         amount: 456,
-        created: '09-12-2019'
+        created: '15-12-2019'
       }
     ]
   },
@@ -40,13 +40,13 @@ const initialStateItems = [
         id: '4',
         carTitle: 'Seicento',
         amount: 231,
-        created: '09-12-2019'
+        created: '03-12-2019'
       },
       {
         id: '5',
         carTitle: 'Opel',
         amount: 322,
-        created: '09-12-2019'
+        created: '01-12-2019'
       }
     ]
   }

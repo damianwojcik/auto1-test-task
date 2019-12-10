@@ -1,0 +1,12 @@
+.bid {
+    position: relative;
+}
+.bid small {
+    position: absolute;
+    color: #818181;
+    font-size: 8px;
+    border: 1px solid #818181;
+    padding: 3px 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+}

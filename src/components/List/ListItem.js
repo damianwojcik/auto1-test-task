@@ -28,7 +28,8 @@ const ListItem = ({
           {firstname} {lastname}
         </Title>
         <p className="listItem__description">
-          Email: {email} | Phone: {phone}
+          Email: <a href={'mailto:' + email}>{email}</a> | Phone:
+          <a href={'tel:' + phone}> {phone}</a>
         </p>
         Bids:
         <ul className="bids">
@@ -36,10 +37,10 @@ const ListItem = ({
             <Bid key={item.id} {...item} />
           ))}
         </ul>
-        <Button href={id} className="listItem__button">
+        <Button className="button__element" href={id}>
           Edit
         </Button>
-        <Button className="listItem__button">Delete</Button>
+        <Button className="button__element">Delete</Button>
       </div>
     </li>
   );

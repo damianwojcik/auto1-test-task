@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.png';
-import './App.css';
-import List from './components/List/List';
-import initialStateItems from './data/data';
-import Form from './components/Form/Form';
+import logo from '../../logo.png';
+import './Root.css';
+import List from '../../components/List/List';
+import initialStateItems from '../../data/data';
+import Button from '../../components/Button/Button';
+import Modal from '../../components/Modal/Modal';
 
-class App extends Component {
+class Root extends Component {
   state = {
-    items: [...initialStateItems]
+    items: [...initialStateItems],
+    isModalOpen: false
   };
 
   addMerchant = event => {
@@ -30,7 +32,21 @@ class App extends Component {
     event.target.reset();
   };
 
+  openModal = () => {
+    this.setState({
+      isModalOpen: true
+    });
+  };
+
+  closeModal = () => {
+    this.setState({
+      isModalOpen: false
+    });
+  };
+
   render() {
+    const { isModalOpen } = this.state;
+
     return (
       <div className="App">
         <div className="App-header">
@@ -38,12 +54,15 @@ class App extends Component {
           <h2>Welcome</h2>
         </div>
         <div className="App-body">
+          <Button onClick={this.openModal} secondary>
+            Add new Merchant
+          </Button>
           <List items={this.state.items} />
-          <Form submitFn={this.addMerchant} />
         </div>
+        {isModalOpen && <Modal closeModalFn={this.closeModal} />}
       </div>
     );
   }
 }
 
-export default App;
+export default Root;

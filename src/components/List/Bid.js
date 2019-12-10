@@ -1,8 +1,9 @@
 import React from 'react';
+import './Bid.css';
 
 const Bid = ({ id, carTitle, amount, created }) => (
-  <li className="bids__item">
-    {id} {carTitle} {amount} {created}
+  <li className="bid">
+    {carTitle}: {amount} $ <small>{created}</small>
   </li>
 );
 
