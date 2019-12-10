@@ -30,6 +30,7 @@ class Root extends Component {
     }));
 
     event.target.reset();
+    this.closeModal();
   };
 
   openModal = () => {
@@ -59,7 +60,12 @@ class Root extends Component {
           </Button>
           <List items={this.state.items} />
         </div>
-        {isModalOpen && <Modal closeModalFn={this.closeModal} />}
+        {isModalOpen && (
+          <Modal
+            addMerchantFn={this.addMerchant}
+            closeModalFn={this.closeModal}
+          />
+        )}
       </div>
     );
   }
