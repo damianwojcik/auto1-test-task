@@ -1,0 +1,16 @@
+.button__wrapper {
+    display: inline-block;
+}
+.button__element {
+    font-size: 10px;
+    text-decoration: none;
+    padding: 7px 12px;
+    font-weight: 500;
+    background: none;
+    border: 2px solid #1E58FF;
+    color: #1E58FF;
+    cursor: pointer;
+    line-height: 1;
+    height: 31px;
+    margin: 0 5px;
+}
