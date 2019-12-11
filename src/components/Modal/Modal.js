@@ -4,9 +4,7 @@ import Form from '../Form/Form';
 
 const Modal = ({ closeModalFn, addMerchantFn }) => (
   <div className="modal__wrapper">
-    <bitton className="modal__closeButton" onClick={closeModalFn}>
-      &times;
-    </bitton>
+    <button className="modal__closeButton" onClick={closeModalFn}></button>
     <Form submitFn={addMerchantFn} />
   </div>
 );

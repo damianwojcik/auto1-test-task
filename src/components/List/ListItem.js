@@ -13,7 +13,8 @@ const ListItem = ({
   email,
   phone,
   hasPremium,
-  bids
+  bids,
+  removeMerchantFn
 }) => {
   const ImageTag = avatarUrl ? 'img' : 'div';
   return (
@@ -26,6 +27,7 @@ const ListItem = ({
       <div>
         <Title>
           {firstname} {lastname}
+          {hasPremium ? <span className="premium">Premium</span> : ''}
         </Title>
         <p className="listItem__description">
           Email: <a href={'mailto:' + email}>{email}</a> | Phone:
@@ -40,7 +42,12 @@ const ListItem = ({
         <Button className="button__element" href={id}>
           Edit
         </Button>
-        <Button className="button__element">Delete</Button>
+        <Button
+          className="button__element danger"
+          onClick={() => removeMerchantFn(id)}
+        >
+          Delete
+        </Button>
       </div>
     </li>
   );

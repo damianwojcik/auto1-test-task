@@ -21,6 +21,7 @@
     right: 30px;
     top: 30px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 .modal__closeButton:before, 
 .modal__closeButton:after {
@@ -37,10 +38,20 @@
   bottom: 0;
   margin: 0 auto;
   transform-origin: 50%;
+  transition: all 0.3s ease;
+  outline: none;
 }
 .modal__closeButton:before {
   transform: rotate(45deg);
 }
 .modal__closeButton:after {
   transform: rotate(-45deg);
+}
+.modal__closeButton:hover {
+  background: white;
+  border: 2px solid #1e58ff;
+}
+.modal__closeButton:hover:before, 
+.modal__closeButton:hover:after {
+  background: #1e58ff;
 }

@@ -26,11 +26,24 @@ class Root extends Component {
     };
 
     this.setState(prevState => ({
-      items: [...prevState.items, newMerchant]
+      items: [newMerchant, ...prevState.items]
     }));
 
     event.target.reset();
     this.closeModal();
+  };
+
+  removeMerchant = id => {
+    const items = [...this.state.items];
+    const deletedItem = items.find(item => item.id == id);
+    const index = items.indexOf(deletedItem);
+    if (
+      window.confirm('Are you sure you want to delete this Merchant?') &&
+      index !== -1
+    ) {
+      items.splice(index, 1);
+      this.setState({ items });
+    }
   };
 
   openModal = () => {
@@ -58,7 +71,10 @@ class Root extends Component {
           <Button onClick={this.openModal} secondary>
             Add new Merchant
           </Button>
-          <List items={this.state.items} />
+          <List
+            removeMerchantFn={this.removeMerchant}
+            items={this.state.items}
+          />
         </div>
         {isModalOpen && (
           <Modal

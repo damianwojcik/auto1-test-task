@@ -3,7 +3,7 @@ const initialStateItems = [
     id: '1',
     firstname: 'Damian',
     lastname: 'Wójcik',
-    avatarUrl: 'https://via.placeholder.com/150',
+    avatarUrl: 'https://avatars3.githubusercontent.com/u/18085193?s=460&v=4',
     email: 'khamian@gmail.com',
     phone: '792225950',
     hasPremium: true,
@@ -12,41 +12,42 @@ const initialStateItems = [
         id: '1',
         carTitle: 'Fiat',
         amount: 521,
-        created: '12-12-2019'
+        created: '1576048176000'
       },
       {
         id: '2',
         carTitle: 'Opel',
         amount: 123,
-        created: '09-12-2019'
+        created: '1576393776000'
       },
       {
         id: '3',
         carTitle: 'Porsche',
         amount: 456,
-        created: '15-12-2019'
+        created: '1575356976000'
       }
     ]
   },
   {
     id: '2',
-    firstname: 'Adam',
-    lastname: 'Hash',
-    avatarUrl: 'https://via.placeholder.com/150',
-    email: 'adamhash@gmail.com',
+    firstname: 'Dan',
+    lastname: 'Abramov',
+    avatarUrl:
+      'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/032/medium/oapgW_Fp_400x400.jpg',
+    email: 'abramov@gmail.com',
     phone: '796665950',
     bids: [
       {
         id: '4',
         carTitle: 'Seicento',
         amount: 231,
-        created: '03-12-2019'
+        created: '1572764976000'
       },
       {
         id: '5',
         carTitle: 'Opel',
         amount: 322,
-        created: '01-12-2019'
+        created: '1572937776000'
       }
     ]
   }
