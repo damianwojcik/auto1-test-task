@@ -35,9 +35,11 @@ const ListItem = ({
         </p>
         Bids:
         <ul className="bids">
-          {bids.map(item => (
-            <Bid key={item.id} {...item} />
-          ))}
+          {bids
+            .sort((a, b) => b.created - a.created)
+            .map(item => (
+              <Bid key={item.id} {...item} />
+            ))}
         </ul>
         <Button className="button__element" href={id}>
           Edit

@@ -6,11 +6,23 @@ import Title from '../Title/Title';
 
 class Form extends React.Component {
   state = {
-    checked: false
+    id: '',
+    firstname: '',
+    lastname: '',
+    avatarUrl: '',
+    email: '',
+    phone: '',
+    hasPremium: false,
+    bids: []
+  };
+  handleInputChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   };
   handleCheckboxChange = () =>
     this.setState(prevState => ({
-      checked: !prevState.checked
+      hasPremium: !prevState.hasPremium
     }));
 
   render() {
@@ -20,19 +32,53 @@ class Form extends React.Component {
         <form
           autoComplete="off"
           className="form__form"
-          onSubmit={this.props.submitFn}
+          onSubmit={event => this.props.submitFn(event, this.state)}
         >
-          <Input name="id" label="Id" maxLength={10} />
-          <Input name="firstname" label="First Name" maxLength={30} />
-          <Input name="lastname" label="Last Name" maxLength={30} />
-          <Input name="avatarUrl" label="Avatar Url" />
-          <Input type="email" name="email" label="Email" />
-          <Input name="phone" label="Phone" />
+          <Input
+            onChange={this.handleInputChange}
+            value={this.state.id}
+            name="id"
+            label="Id"
+            maxLength={10}
+          />
+          <Input
+            onChange={this.handleInputChange}
+            value={this.state.firstname}
+            name="firstname"
+            label="First Name"
+            maxLength={30}
+          />
+          <Input
+            onChange={this.handleInputChange}
+            value={this.state.lastname}
+            name="lastname"
+            label="Last Name"
+            maxLength={30}
+          />
+          <Input
+            onChange={this.handleInputChange}
+            value={this.state.avatarUrl}
+            name="avatarUrl"
+            label="Avatar Url"
+          />
+          <Input
+            onChange={this.handleInputChange}
+            value={this.state.email}
+            type="email"
+            name="email"
+            label="Email"
+          />
+          <Input
+            onChange={this.handleInputChange}
+            value={this.state.phone}
+            name="phone"
+            label="Phone"
+          />
           <div className="form__item form__item--left">
             <input
               name="premium"
               type="checkbox"
-              checked={this.state.checked ? 'checked' : ''}
+              checked={this.state.hasPremium ? 'checked' : ''}
             />
             <label htmlFor="premium" onClick={this.handleCheckboxChange}>
               Premium

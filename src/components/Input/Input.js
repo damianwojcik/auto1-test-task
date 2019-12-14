@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Input.css';
 
-const Input = ({ type, name, label, maxLength }) => (
+const Input = ({ type, name, label, maxLength, ...props }) => (
   <div className="form__item">
     <input
       type={type}
@@ -11,6 +11,7 @@ const Input = ({ type, name, label, maxLength }) => (
       maxLength={maxLength}
       placeholder=" "
       required={name !== 'avatarUrl'}
+      {...props}
     />
     <label htmlFor={name}>{label}</label>
     <div className="forms__item__bar"></div>

@@ -1,9 +1,10 @@
 .listItem__wrapper {
     list-style: none;
     margin: 0;
-    padding: 50px 30px;
+    padding: 20px 0 30px;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: left;
     position: relative;
     animation: appear .5s ease;

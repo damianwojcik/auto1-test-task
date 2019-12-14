@@ -12,31 +12,21 @@ class Root extends Component {
     isModalOpen: false
   };
 
-  addMerchant = event => {
+  addMerchant = (event, newItem) => {
     event.preventDefault();
-    const newMerchant = {
-      id: event.target[0].value,
-      firstname: event.target[1].value,
-      lastname: event.target[2].value,
-      avatarUrl: event.target[3].value,
-      email: event.target[4].value,
-      phone: event.target[5].value,
-      hasPremium: event.target[6].checked,
-      bids: []
-    };
 
     this.setState(prevState => ({
-      items: [newMerchant, ...prevState.items]
+      items: [newItem, ...prevState.items]
     }));
 
-    event.target.reset();
     this.closeModal();
   };
 
   removeMerchant = id => {
     const items = [...this.state.items];
-    const deletedItem = items.find(item => item.id == id);
+    const deletedItem = items.find(item => item.id === id);
     const index = items.indexOf(deletedItem);
+
     if (
       window.confirm('Are you sure you want to delete this Merchant?') &&
       index !== -1
