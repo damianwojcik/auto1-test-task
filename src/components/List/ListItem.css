@@ -1,57 +1,57 @@
 .listItem__wrapper {
-    list-style: none;
-    margin: 0;
-    padding: 20px 0 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-    position: relative;
-    animation: appear .5s ease;
+  max-width: 600px;
+  list-style: none;
+  margin: 0 auto;
+  padding: 20px 0 30px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  position: relative;
+  animation: appear 0.5s ease;
 }
 .listItem__image {
-    flex-shrink: 0;
-    margin-right: 30px;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    position: relative;
+  flex-shrink: 0;
+  margin-right: 30px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: relative;
 }
 .listItem__imageNone {
-    flex-shrink: 0;
-    margin-right: 30px;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: url('https://via.placeholder.com/150') no-repeat;
-    background-size: cover;
+  flex-shrink: 0;
+  margin-right: 30px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: url('https://via.placeholder.com/150') no-repeat;
+  background-size: cover;
 }
 .listItem__description {
-    margin: 10px 0 20px;
-    font-weight: 300;
+  margin: 10px 0 20px;
+  font-weight: 300;
 }
 .listItem__description a {
-    text-decoration: none;;
+  text-decoration: none;
 }
 .listItem__wrapper .button__wrapper:last-child {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 .bids {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 .premium {
-    position: absolute;
-    right: 0;
-    top: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 @keyframes appear {
-    0% {
-        opacity: 0;
-        top: 35px;
-    }
-    100% {
-        opacity: 1;
-        top: 0;
-    }
+  0% {
+    opacity: 0;
+    top: 35px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
 }

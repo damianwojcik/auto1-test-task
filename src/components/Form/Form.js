@@ -6,15 +6,17 @@ import Button from '../Button/Button';
 import Title from '../Title/Title';
 import { addItem as addItemAction } from '../../actions';
 import { closeModal as closeModalAction } from '../../actions';
+import { editItem as editItemAction } from '../../actions';
 
 class Form extends React.Component {
   state = {
-    firstname: '',
-    lastname: '',
-    avatarUrl: '',
-    email: '',
-    phone: '',
-    hasPremium: false,
+    id: this.props.item.length ? this.props.item[0].id : '',
+    firstname: this.props.item.length ? this.props.item[0].firstname : '',
+    lastname: this.props.item.length ? this.props.item[0].lastname : '',
+    avatarUrl: this.props.item.length ? this.props.item[0].avatarUrl : '',
+    email: this.props.item.length ? this.props.item[0].email : '',
+    phone: this.props.item.length ? this.props.item[0].phone : '',
+    hasPremium: this.props.item.length ? this.props.item[0].hasPremium : false,
     bids: []
   };
 
@@ -30,50 +32,60 @@ class Form extends React.Component {
     }));
 
   render() {
-    const { addItem, closeModal } = this.props;
+    const { addItem, editItem, closeModal } = this.props;
+    const {
+      firstname,
+      lastname,
+      avatarUrl,
+      email,
+      phone,
+      hasPremium
+    } = this.state;
 
     return (
       <div className="form__wrapper">
-        <Title>Add new Merchant</Title>
+        <Title>{this.props.item.length ? 'Edit' : 'Add new'} Merchant</Title>
         <form
           autoComplete="off"
           className="form__form"
           onSubmit={e => {
             e.preventDefault();
-            addItem(this.state);
+            this.props.item.length
+              ? editItem(this.state.id, this.state)
+              : addItem(this.state);
             closeModal();
           }}
         >
           <Input
             onChange={this.handleInputChange}
-            value={this.state.firstname}
+            value={firstname}
             name="firstname"
             label="First Name"
             maxLength={30}
           />
           <Input
             onChange={this.handleInputChange}
-            value={this.state.lastname}
+            value={lastname}
             name="lastname"
             label="Last Name"
             maxLength={30}
           />
           <Input
             onChange={this.handleInputChange}
-            value={this.state.avatarUrl}
+            value={avatarUrl}
             name="avatarUrl"
             label="Avatar Url"
           />
           <Input
             onChange={this.handleInputChange}
-            value={this.state.email}
+            value={email}
             type="email"
             name="email"
             label="Email"
           />
           <Input
             onChange={this.handleInputChange}
-            value={this.state.phone}
+            value={phone}
             name="phone"
             label="Phone"
           />
@@ -81,23 +93,31 @@ class Form extends React.Component {
             <input
               name="premium"
               type="checkbox"
-              checked={this.state.hasPremium ? 'checked' : ''}
+              checked={hasPremium ? 'checked' : ''}
+              onChange={this.handleCheckboxChange}
             />
             <label htmlFor="premium" onClick={this.handleCheckboxChange}>
               Premium
             </label>
           </div>
-          <Button>Add new Merchant</Button>
+          <Button>
+            {this.props.item.length ? 'Save' : 'Add new'} Merchant
+          </Button>
         </form>
       </div>
     );
   }
 }
 
+const mapStateToProps = state => {
+  const { item } = state;
+  return { item };
+};
+
 const mapDispatchToProps = dispatch => ({
-  addItem: (itemType, itemContent) =>
-    dispatch(addItemAction(itemType, itemContent)),
+  addItem: itemContent => dispatch(addItemAction(itemContent)),
+  editItem: (id, itemContent) => dispatch(editItemAction(id, itemContent)),
   closeModal: () => dispatch(closeModalAction())
 });
 
-export default connect(null, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

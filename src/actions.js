@@ -7,6 +7,16 @@ export const removeItem = id => {
   };
 };
 
+export const editItem = (id, itemContent) => {
+  return {
+    type: 'EDIT_ITEM',
+    payload: {
+      id,
+      itemContent
+    }
+  };
+};
+
 export const addItem = itemContent => {
   const getId = () =>
     `_${Math.random()
@@ -17,8 +27,8 @@ export const addItem = itemContent => {
     type: 'ADD_ITEM',
     payload: {
       item: {
-        id: getId(),
-        ...itemContent
+        ...itemContent,
+        id: getId()
       }
     }
   };
@@ -30,8 +40,11 @@ export const closeModal = () => {
   };
 };
 
-export const openModal = () => {
+export const openModal = (id = null) => {
   return {
-    type: 'MODAL_OPEN'
+    type: 'MODAL_OPEN',
+    payload: {
+      id
+    }
   };
 };

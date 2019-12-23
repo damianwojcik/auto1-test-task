@@ -6,6 +6,7 @@ import Bid from './Bid';
 import Button from '../Button/Button';
 import Title from '../Title/Title';
 import { removeItem as removeItemAction } from '../../actions';
+import { openModal as openModalAction } from '../../actions';
 
 const ListItem = ({
   id,
@@ -16,7 +17,8 @@ const ListItem = ({
   phone,
   hasPremium,
   bids,
-  removeItem
+  removeItem,
+  openModal
 }) => {
   const ImageTag = avatarUrl ? 'img' : 'div';
   return (
@@ -49,7 +51,7 @@ const ListItem = ({
         ) : (
           ''
         )}
-        <Button className="button__element" onClick={() => removeItem(id)}>
+        <Button className="button__element" onClick={() => openModal(id)}>
           Edit
         </Button>
         <Button
@@ -87,7 +89,8 @@ ListItem.defaultProps = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  removeItem: id => dispatch(removeItemAction(id))
+  removeItem: id => dispatch(removeItemAction(id)),
+  openModal: id => dispatch(openModalAction(id))
 });
 
 export default connect(null, mapDispatchToProps)(ListItem);

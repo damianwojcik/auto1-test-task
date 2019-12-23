@@ -68,10 +68,21 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         items: [action.payload.item, ...state.items]
       };
+    case 'EDIT_ITEM':
+      let oldItem = state.items.filter(item => item.id === action.payload.id);
+      oldItem = action.payload.itemContent;
+      return {
+        ...state,
+        items: [oldItem, ...state.items]
+      };
     case 'MODAL_OPEN':
-      return { ...state, isModalOpen: true };
+      return {
+        ...state,
+        item: state.items.filter(item => item.id === action.payload.id),
+        isModalOpen: true
+      };
     case 'MODAL_CLOSE':
-      return { ...state, isModalOpen: false };
+      return { ...state, item: null, isModalOpen: false };
     default:
       return state;
   }
