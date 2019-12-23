@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './ListItem.css';
 import Bid from './Bid';
 import Button from '../Button/Button';
 import Title from '../Title/Title';
+import { removeItem as removeItemAction } from '../../actions';
 
 const ListItem = ({
   id,
@@ -14,7 +16,7 @@ const ListItem = ({
   phone,
   hasPremium,
   bids,
-  removeMerchantFn
+  removeItem
 }) => {
   const ImageTag = avatarUrl ? 'img' : 'div';
   return (
@@ -33,20 +35,26 @@ const ListItem = ({
           Email: <a href={'mailto:' + email}>{email}</a> | Phone:
           <a href={'tel:' + phone}> {phone}</a>
         </p>
-        Bids:
-        <ul className="bids">
-          {bids
-            .sort((a, b) => b.created - a.created)
-            .map(item => (
-              <Bid key={item.id} {...item} />
-            ))}
-        </ul>
-        <Button className="button__element" href={id}>
+        {bids.length ? (
+          <div>
+            <span>Bids:</span>
+            <ul className="bids">
+              {bids
+                .sort((a, b) => b.created - a.created)
+                .map(item => (
+                  <Bid key={item.id} {...item} />
+                ))}
+            </ul>
+          </div>
+        ) : (
+          ''
+        )}
+        <Button className="button__element" onClick={() => removeItem(id)}>
           Edit
         </Button>
         <Button
           className="button__element danger"
-          onClick={() => removeMerchantFn(id)}
+          onClick={() => removeItem(id)}
         >
           Delete
         </Button>
@@ -78,4 +86,8 @@ ListItem.defaultProps = {
   avatarUrl: null
 };
 
-export default ListItem;
+const mapDispatchToProps = dispatch => ({
+  removeItem: id => dispatch(removeItemAction(id))
+});
+
+export default connect(null, mapDispatchToProps)(ListItem);

@@ -1,12 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './Modal.css';
 import Form from '../Form/Form';
+import { closeModal as closeModalAction } from '../../actions';
 
-const Modal = ({ closeModalFn, addMerchantFn }) => (
+const Modal = ({ closeModal }) => (
   <div className="modal__wrapper">
-    <button className="modal__closeButton" onClick={closeModalFn}></button>
-    <Form submitFn={addMerchantFn} />
+    <button className="modal__closeButton" onClick={closeModal}></button>
+    <Form />
   </div>
 );
 
-export default Modal;
+const mapDispatchToProps = dispatch => ({
+  closeModal: () => dispatch(closeModalAction())
+});
+
+export default connect(null, mapDispatchToProps)(Modal);

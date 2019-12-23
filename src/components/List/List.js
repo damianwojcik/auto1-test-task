@@ -1,17 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import ListItem from './ListItem';
 import './List.css';
 
-const List = ({ items, removeMerchantFn }) => (
+const List = ({ items }) => (
   <div>
     {items.length ? (
       <ul className="list__wrapper">
         {items.map(item => (
-          <ListItem
-            key={item.id}
-            {...item}
-            removeMerchantFn={removeMerchantFn}
-          />
+          <ListItem key={item.id} {...item} />
         ))}
       </ul>
     ) : (
@@ -20,4 +17,9 @@ const List = ({ items, removeMerchantFn }) => (
   </div>
 );
 
-export default List;
+const mapStateToProps = state => {
+  const { items } = state;
+  return { items };
+};
+
+export default connect(mapStateToProps)(List);

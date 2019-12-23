@@ -1,12 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './Form.css';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import Title from '../Title/Title';
+import { addItem as addItemAction } from '../../actions';
+import { closeModal as closeModalAction } from '../../actions';
 
 class Form extends React.Component {
   state = {
-    id: '',
     firstname: '',
     lastname: '',
     avatarUrl: '',
@@ -15,32 +17,33 @@ class Form extends React.Component {
     hasPremium: false,
     bids: []
   };
+
   handleInputChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
   };
+
   handleCheckboxChange = () =>
     this.setState(prevState => ({
       hasPremium: !prevState.hasPremium
     }));
 
   render() {
+    const { addItem, closeModal } = this.props;
+
     return (
       <div className="form__wrapper">
         <Title>Add new Merchant</Title>
         <form
           autoComplete="off"
           className="form__form"
-          onSubmit={event => this.props.submitFn(event, this.state)}
+          onSubmit={e => {
+            e.preventDefault();
+            addItem(this.state);
+            closeModal();
+          }}
         >
-          <Input
-            onChange={this.handleInputChange}
-            value={this.state.id}
-            name="id"
-            label="Id"
-            maxLength={10}
-          />
           <Input
             onChange={this.handleInputChange}
             value={this.state.firstname}
@@ -91,4 +94,10 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+const mapDispatchToProps = dispatch => ({
+  addItem: (itemType, itemContent) =>
+    dispatch(addItemAction(itemType, itemContent)),
+  closeModal: () => dispatch(closeModalAction())
+});
+
+export default connect(null, mapDispatchToProps)(Form);
