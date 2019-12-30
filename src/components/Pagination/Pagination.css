@@ -1,0 +1,21 @@
+.pagination {
+  list-style: none;
+  margin-bottom: 30px;
+}
+.pagination li {
+  display: inline-block;
+}
+.pagination li.active {
+  background: #ddd;
+}
+.pagination button {
+  background: transparent;
+  outline: none;
+  border: 1px solid #ddd;
+  color: #1e58ff;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+.pagination button:hover {
+  border: 1px solid #1e58ff;
+}

@@ -17,7 +17,7 @@ class Form extends React.Component {
     email: this.props.item.length ? this.props.item[0].email : '',
     phone: this.props.item.length ? this.props.item[0].phone : '',
     hasPremium: this.props.item.length ? this.props.item[0].hasPremium : false,
-    bids: []
+    bids: this.props.item.length ? this.props.item[0].bids : []
   };
 
   handleInputChange = event => {

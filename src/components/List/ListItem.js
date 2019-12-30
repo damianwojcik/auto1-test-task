@@ -21,6 +21,12 @@ const ListItem = ({
   openModal
 }) => {
   const ImageTag = avatarUrl ? 'img' : 'div';
+  const removeItemFn = id => {
+    if (window.confirm('Are you sure you want delete this Merchant?')) {
+      removeItem(id);
+    }
+  };
+
   return (
     <li className="listItem__wrapper">
       <ImageTag
@@ -56,7 +62,7 @@ const ListItem = ({
         </Button>
         <Button
           className="button__element danger"
-          onClick={() => removeItem(id)}
+          onClick={() => removeItemFn(id)}
         >
           Delete
         </Button>

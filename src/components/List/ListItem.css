@@ -8,6 +8,12 @@
   text-align: left;
   position: relative;
   animation: appear 0.5s ease;
+  flex-direction: column;
+}
+@media (min-width: 600px) {
+  .listItem__wrapper {
+    flex-direction: row;
+  }
 }
 .listItem__image {
   flex-shrink: 0;
@@ -16,6 +22,7 @@
   height: 150px;
   border-radius: 50%;
   position: relative;
+  margin-bottom: 20px;
 }
 .listItem__imageNone {
   flex-shrink: 0;
