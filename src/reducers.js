@@ -2,7 +2,8 @@ import data from './data/data';
 
 const initialState = {
   isModalOpen: false,
-  items: data
+  items: data,
+  item: {}
 };
 
 const rootReducer = (state = initialState, action) => {

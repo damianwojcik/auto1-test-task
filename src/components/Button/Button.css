@@ -1,40 +1,40 @@
 .button__wrapper {
-    display: inline-block;
+  display: inline-block;
 }
 .button__element {
-    font-size: 10px;
-    text-decoration: none;
-    padding: 7px 12px;
-    font-weight: 500;
-    background: none;
-    border: 2px solid #1E58FF;
-    color: #1E58FF;
-    cursor: pointer;
-    line-height: 1;
-    height: 31px;
-    transition: all 0.3s ease;
-    outline: none;
+  font-size: 10px;
+  text-decoration: none;
+  padding: 7px 12px;
+  font-weight: 500;
+  background: none;
+  border: 2px solid #1e58ff;
+  color: #1e58ff;
+  cursor: pointer;
+  line-height: 1;
+  height: 31px;
+  transition: all 0.3s ease;
+  outline: none;
 }
 .button__element:hover {
-    background: #1E58FF;
-    color: white;
+  background: #1e58ff;
+  color: white;
 }
-.button__element.secondary {
-    background-color: #1e58ff;
-    color: white;
-    font-weight: 700;
-    font-size: .8em; 
-    box-shadow: 0 5px 20px -5px #818181;
+.button__element--secondary {
+  background-color: #1e58ff;
+  color: white;
+  font-weight: 700;
+  font-size: 0.8em;
+  box-shadow: 0 5px 20px -5px #818181;
 }
-.button__element.secondary:hover {
-    background: white;
-    color: #1e58ff;
+.button__element--secondary:hover {
+  background: white;
+  color: #1e58ff;
 }
-.button__element.danger {
-    border: 2px solid #FF3B30;
-    color: #FF3B30;
+.button__element--danger {
+  border: 2px solid #ff3b30;
+  color: #ff3b30;
 }
-.button__element.danger:hover {
-    background-color: #FF3B30;
-    color: white;
+.button__element--danger:hover {
+  background-color: #ff3b30;
+  color: white;
 }

@@ -57,11 +57,9 @@ const ListItem = ({
         ) : (
           ''
         )}
-        <Button className="button__element" onClick={() => openModal(id)}>
-          Edit
-        </Button>
+        <Button onClick={() => openModal(id)}>Edit</Button>
         <Button
-          className="button__element danger"
+          className="button__element button__element--danger"
           onClick={() => removeItemFn(id)}
         >
           Delete

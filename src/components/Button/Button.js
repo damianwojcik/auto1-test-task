@@ -4,7 +4,7 @@ import './Button.css';
 
 const Button = ({ children, href, secondary, ...props }) => {
   const buttonClass = secondary
-    ? 'button__element secondary'
+    ? 'button__element button__element--secondary'
     : 'button__element';
 
   return (
