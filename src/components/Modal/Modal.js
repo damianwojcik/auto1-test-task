@@ -1,14 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './Modal.css';
-import Form from '../Form/Form';
 import { closeModal as closeModalAction } from '../../actions';
 
-const Modal = ({ closeModal }) => (
+const Modal = ({ children, closeModal }) => (
   <div className="modal__backdrop">
     <div className="modal__wrapper">
       <button className="modal__closeButton" onClick={closeModal}></button>
-      <Form />
+      {children}
     </div>
   </div>
 );

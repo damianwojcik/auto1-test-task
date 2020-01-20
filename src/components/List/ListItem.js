@@ -5,7 +5,6 @@ import './ListItem.css';
 import Bid from './Bid';
 import Button from '../Button/Button';
 import Title from '../Title/Title';
-import { removeItem as removeItemAction } from '../../actions';
 import { openModal as openModalAction } from '../../actions';
 
 const ListItem = ({
@@ -17,15 +16,9 @@ const ListItem = ({
   phone,
   hasPremium,
   bids,
-  removeItem,
   openModal
 }) => {
   const ImageTag = avatarUrl ? 'img' : 'div';
-  const removeItemFn = id => {
-    if (window.confirm('Are you sure you want delete this Merchant?')) {
-      removeItem(id);
-    }
-  };
 
   return (
     <li className="listItem__wrapper">
@@ -57,10 +50,10 @@ const ListItem = ({
         ) : (
           ''
         )}
-        <Button onClick={() => openModal(id)}>Edit</Button>
+        <Button onClick={() => openModal(id, 'form')}>Edit</Button>
         <Button
           className="button__element button__element--danger"
-          onClick={() => removeItemFn(id)}
+          onClick={() => openModal(id, 'confirm')}
         >
           Delete
         </Button>
@@ -93,8 +86,7 @@ ListItem.defaultProps = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  removeItem: id => dispatch(removeItemAction(id)),
-  openModal: id => dispatch(openModalAction(id))
+  openModal: (id, type) => dispatch(openModalAction(id, type))
 });
 
 export default connect(null, mapDispatchToProps)(ListItem);
